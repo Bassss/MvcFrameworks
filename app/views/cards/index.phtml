@@ -1,0 +1,69 @@
+<div class="page-header">
+    <h1>
+        Cardz
+    </h1>
+    <?php echo $this->getContent(); ?>
+
+    <!--	Create if statement that only shows when logged in and admin+-->
+    <!--	--><?php //if (isset($secure) && $secure == true): ?>
+    <p>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?php echo $this->tag->linkTo(["cards/new", "Create new Card"]) ?>
+    </p>
+    <?php $rank = $this->session->get("rank");
+    if ($rank == '3' || $rank == '2'):
+        ?>
+
+        <p>
+            <i class="fa fa-lock" aria-hidden="true"></i> <?php echo $this->tag->linkTo(["cards/manage", "Manage cards"]) ?>
+        </p>
+    <?php endif; ?>
+</div>
+
+
+<table class = "cards">
+<tb>
+    <?php foreach ($page->items as $cards): ?>
+        <td>
+
+            <li >Created by: <?php echo ucfirst($cards->sender) ?></li>
+            <li>For: <?php echo ucfirst($cards->reciever) ?></li>
+            <li class = "titleli">Title: <?php echo ucfirst($cards->title) ?></li>
+            <li>Text: <?php echo ucfirst($cards->text) ?></li>
+            <?php
+            echo $this->tag->form("cards/like");
+            ?>
+            <li>
+                <?php echo $this->tag->hiddenField(["cardid", "class" => "form-control", "value" => $cards->id]) ?>
+                <?php  echo $this->tag->submitButton([($cards->likes)." likes", "class" => "btn btn-info"]); ?>
+<!--                --><?php //echo $this->tag->linkTo(["cards/like/" . $cards->id, ($cards->likes)." likes", "class" => "btn btn-info"]); ?>
+            </li>
+           <?php echo $this->tag->endForm(); ?>
+        </td>
+
+    <?php endforeach; ?>
+</tb>
+</table>
+
+
+
+
+
+<div class="row">
+    <div class="col-sm-1">
+        <p class="pagination" style="line-height: 1.42857;padding: 6px 12px;">
+            <?php echo $page->current, "/", $page->total_pages ?>
+        </p>
+    </div>
+    <div class="col-sm-11">
+        <nav>
+            <ul class="pagination">
+                <li><?php echo $this->tag->linkTo("cards", "First") ?></li>
+                <li><?php echo $this->tag->linkTo("cards?page=" . $page->before, "Previous") ?></li>
+                <li><?php echo $this->tag->linkTo("cards?page=" . $page->next, "Next") ?></li>
+                <li><?php echo $this->tag->linkTo("cards?page=" . $page->last, "Last") ?></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
