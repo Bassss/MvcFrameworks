@@ -9,7 +9,7 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
-        'host'        => '127.0.0.1',
+        'host'        => 'localhost',
         'username'    => 'root',
         'password'    => 'root',
         'dbname'      => 'mvc',
@@ -24,6 +24,6 @@ return new \Phalcon\Config([
         'pluginsDir'     => APP_PATH . '/plugins/',
         'libraryDir'     => APP_PATH . '/library/',
         'cacheDir'       => BASE_PATH . '/cache/',
-        'baseUri'        => '/mvc/',
+        'baseUri'        => '',
     ]
 ]);

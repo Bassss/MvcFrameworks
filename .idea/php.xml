@@ -5,6 +5,12 @@
       <BehatSettings />
     </behat_settings>
   </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$USER_HOME$/cphalcon/phalcon/" />
+      <path value="$USER_HOME$/phalcon-devtools" />
+    </include_path>
+  </component>
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings />

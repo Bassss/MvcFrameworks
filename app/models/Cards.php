@@ -24,7 +24,7 @@ class Cards extends \Phalcon\Mvc\Model
      * @var string
      * @Column(type="string", length=255, nullable=false)
      */
-    public $reciever;
+    public $receiver;
 
     /**
      *
