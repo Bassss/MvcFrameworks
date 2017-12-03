@@ -48,7 +48,7 @@ class CardsController extends ControllerBase
         $cards->title = $this->request->getPost("title");
         $cards->text = $this->request->getPost("text");
         $cards->sender = $this->request->getPost("sender");
-        $cards->reciever = $this->request->getPost("reciever");
+        $cards->receiver = $this->request->getPost("receiver");
         $cards->public = 1;
         $cards->likes = 0;
         $userid = $this->session->get("id");
@@ -79,7 +79,7 @@ class CardsController extends ControllerBase
 
     public function manageAction()
     {
-        $this->handleSecurity('3');
+        $this->handleSecurity('2');
 
 
         $numberPage = 1;
@@ -198,27 +198,47 @@ class CardsController extends ControllerBase
     }
     public function likeAction()
     {
-//        $userid = $this->session->get("id");
-//        $cards = Cards::find("id = '" . $userid . "'");
-//        $xcards = count($cards);
+        $userid = $this->session->get("id");
+        $x = Cards::find(array
+        (
+            "user_id = '" . $userid . "'"
+        ));
+        $results = count($x);
+        if ($results > 2) {
 
 
-//        if ($xcards < 2) {
-//            $this->response->redirect('cards');
-//            return;
-//        } else {
-//            $cardid = $this->request->getPost("cardid");
-//            $xcard = Cards::findFirst(array
-//            (
-//                "id = '$cardid'"
-//            ));
-//            $xcard->likes + 1;
-//        }
+            $cardid = $this->request->getPost("cardid");
+            $cards = Cards::findFirstById($cardid);
 
-        $cardid = 14;
-        $indivicualcard = Cards::findFirst("id = '" . $cardid . "'");
-        $indivicualcard->likes + 1;
 
+            $cards->likes++;
+
+
+            if (!$cards->save()) {
+                foreach ($cards->getMessages() as $message) {
+                    $this->flash->error($message);
+                }
+
+                $this->dispatcher->forward([
+                    'controller' => "index",
+                    'action' => 'index'
+                ]);
+
+                return;
+            }
+
+            $this->dispatcher->forward([
+                'controller' => "cards",
+                'action' => "index"
+            ]);
+        } else
+        {
+            $this->flash->error("You need to make more cards");
+
+            $this->dispatcher->forward([
+                'controller' => "index",
+                'action' => "index"]);
+        }
     }
-}
 
+}

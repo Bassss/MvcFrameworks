@@ -9,7 +9,7 @@
         You have tried to access a page which does not exist or has been moved.
         <br />
         <br />
-        Please go back to home <a href="/mvc">here</a>
+        Please go back to home <a href="/">here</a>
 
         <br />
         <br />

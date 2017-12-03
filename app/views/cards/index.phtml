@@ -22,11 +22,13 @@
 
 <table class = "cards">
 <tb>
-    <?php foreach ($page->items as $cards): ?>
+    <?php foreach ($page->items as $cards):
+        if($cards->public){?>
+
         <td>
 
             <li >Created by: <?php echo ucfirst($cards->sender) ?></li>
-            <li>For: <?php echo ucfirst($cards->reciever) ?></li>
+            <li>For: <?php echo ucfirst($cards->receiver) ?></li>
             <li class = "titleli">Title: <?php echo ucfirst($cards->title) ?></li>
             <li>Text: <?php echo ucfirst($cards->text) ?></li>
             <?php
@@ -39,8 +41,10 @@
             </li>
            <?php echo $this->tag->endForm(); ?>
         </td>
+            <?php
 
-    <?php endforeach; ?>
+}
+    endforeach; ?>
 </tb>
 </table>
 

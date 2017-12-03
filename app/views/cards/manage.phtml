@@ -36,7 +36,7 @@ echo $this->tag->endForm();
             <th>Title</th>
             <th>Text</th>
             <th>Sender</th>
-            <th>Reciever</th>
+            <th>Receiver</th>
             <th>Likes</th>
 <!--            <th>Public / Private</th>-->
             <th>Knopje</th>
@@ -49,7 +49,7 @@ echo $this->tag->endForm();
                 <td><?php echo $cards->title ?></td>
                 <td><?php echo $cards->text ?></td>
                 <td><?php echo $cards->user->id ?> | <?= $cards->user->username ?></td>
-                <td><?php echo $cards->reciever ?></td>
+                <td><?php echo $cards->receiver ?></td>
                 <td><?php echo $cards->likes ?></td>
 <!--                <td>-->
 <!--                    --><?php //if($cards->public == 1){

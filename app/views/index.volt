@@ -19,11 +19,11 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <footer>
-    <?php echo $this->tag->linkTo(["index", "Index"]); ?>
+    <?php echo $this->tag->linkTo(["/index", "Index"]); ?>
     |
-    <?php echo $this->tag->linkTo(["cards", "Cards"]); ?>
+    <?php echo $this->tag->linkTo(["/cards", "Cards"]); ?>
     |
-    <?php echo $this->tag->linkTo(["user", "User"]); ?>
+    <?php echo $this->tag->linkTo(["/user", "User"]); ?>
     <p>
         <?php
             if ($this->session->has("username"))
@@ -46,7 +46,7 @@
         ?> | <?php
 
         } else {
-            echo $this->tag->linkTo(["login", "Login"]);
+            echo $this->tag->linkTo(["/login", "Login"]);
         }
         ?>
     </p>
