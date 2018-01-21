@@ -8,11 +8,12 @@ project is Phalcon. You can find the full documentation of Phalcon [here](https:
 - [Setup](#setup)
   - [Windows](#windows)
 - [OTAP](#otap)
-- [Production](#production)
+  - [Production](#production)
 
 ### Setup
 
-/// iets?
+Phalcon should require little effort to set up. 
+For the instalation on Phalcon on Windows you can see the documentation below, else please see the [Phalcon](https://phalconphp.com/en/) website.
 
 ### Windows
 
@@ -30,19 +31,13 @@ To install Phalcon on Windows:
 ```php
 <?php phpinfo(); ?>
 ```
-and search for a section mentioning the Phalcon extension.
+and search for a section mentioning the [Phalcon](https://phalconphp.com/en/) extension.
 
-### OTAP
-
-Since this project is created with the use of the framework Phalcon it is important to note that PHP has to be enabled on your
-hosting platform / system. If you are unsure of this, please contact your host.
 
 
 ### Production
+To succesfully run Phalcon for yourself, please be aware of the following:
 
+Since this project is created with the use of the framework [Phalcon](https://phalconphp.com/en/) it is important to note that PHP has to be enabled on your
+hosting platform / system. If you are unsure of this, please contact your host.
 tekst
-```
-if (isAwesome){
-  return true
-}
-```
