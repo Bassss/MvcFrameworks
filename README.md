@@ -9,6 +9,7 @@ project is Phalcon. You can find the full documentation of Phalcon [here](https:
   - [Windows](#windows)
 - [OTAP](#otap)
   - [Production](#production)
+- [Disclaimer](#disclaimer)
 
 ### Setup
 
@@ -34,10 +35,12 @@ To install Phalcon on Windows:
 and search for a section mentioning the [Phalcon](https://phalconphp.com/en/) extension.
 
 
-
 ### Production
 To succesfully run Phalcon for yourself, please be aware of the following:
 
 Since this project is created with the use of the framework [Phalcon](https://phalconphp.com/en/) it is important to note that PHP has to be enabled on your
 hosting platform / system. If you are unsure of this, please contact your host.
 tekst
+
+### Disclaimer
+Please be aware that this Github repository is part of a school project. 
